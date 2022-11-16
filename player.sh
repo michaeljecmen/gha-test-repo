@@ -7,7 +7,7 @@ echo "    $$: running tests with live url: $LIVE_URL"
 echo "    $$: running tests with vod url: $VOD_URL"
 echo "    $$: running tests with clip url: $CLIP_URL"
 
-# fail if PID is odd, pass if even
+# fail if PID is even, pass if odd
 if [ $(($$%2)) -eq 0 ]; then
     echo "    $$: test FAILED"
     exit 1
