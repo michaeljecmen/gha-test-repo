@@ -11,5 +11,9 @@ jobs:
         uses: ./.github/actions/run-fuzzer
         with:
           who-to-greet: 'Michael the Test Inputter'
+      - id: run-player-tests
+        uses: ./.github/actions/run-player
+        with:
+          test-name: 'web e2e'
       - run: echo url-bundle ${{ steps.generate-fuzzy-inputs.outputs.url-bundle }}
         shell: bash

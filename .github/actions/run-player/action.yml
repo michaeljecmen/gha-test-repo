@@ -1,0 +1,18 @@
+name: 'Run Player Tests'
+description: 'Run player tests'
+inputs:
+  test-name:  # id of input
+    description: 'What test to run'
+    required: true
+outputs:
+  passed:
+    description: "If the test passed or not"
+    value: ${{ steps.test-runner.outputs.passed }}
+runs:
+  using: "composite"
+  steps:
+    - id: test-runner
+      run: ./player.sh {{ inputs.test-name }}
+      shell: bash
+    - run: echo "passed=$($?)" >> $GITHUB_OUTPUT
+      shell: bash
