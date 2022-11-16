@@ -3,13 +3,13 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: run fuzzy tests
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
       - id: generate-fuzzy-inputs
         uses: ./.github/actions/run-fuzzer
         with:
-          who-to-greet: 'Mona the Octocat'
-      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+          who-to-greet: 'Michael the Test Inputter'
+      - run: echo url-bundle ${{ steps.generate-fuzzy-inputs.outputs.url-bundle }}
         shell: bash
