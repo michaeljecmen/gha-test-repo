@@ -1,7 +1,7 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  fuzzy_test_runner:
     runs-on: ubuntu-latest
     name: run fuzzy tests
     steps:
@@ -13,5 +13,6 @@ jobs:
         uses: ./.github/actions/run-player
         with:
           test-name: 'web e2e'
-      - run: echo url-bundle ${{ steps.generate-fuzzy-inputs.outputs.url-bundle }}
+      - if: always()
+        run: echo url-bundle ${{ steps.generate-fuzzy-inputs.outputs.url-bundle }}
         shell: bash
