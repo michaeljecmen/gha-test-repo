@@ -9,8 +9,6 @@ jobs:
         uses: actions/checkout@v3
       - id: generate-fuzzy-inputs
         uses: ./.github/actions/run-fuzzer
-        with:
-          who-to-greet: 'Michael the Test Inputter'
       - id: run-player-tests
         uses: ./.github/actions/run-player
         with:
