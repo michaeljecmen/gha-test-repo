@@ -12,7 +12,7 @@ runs:
   using: "composite"
   steps:
     - id: test-runner
-      run: ./player.sh ${{ inputs.test-name }}
+      run: ./player.sh "${{ inputs.test-name }}"
       shell: bash
     - run: echo "passed=$($?)" >> $GITHUB_OUTPUT
       shell: bash
