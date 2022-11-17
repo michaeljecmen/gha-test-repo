@@ -1,7 +1,7 @@
 import os
 
-live="https://www.twitch.tv/bufferbunny",
-vod="https://www.twitch.tv/videos/1652600015",
+live="https://www.twitch.tv/bufferbunny"
+vod="https://www.twitch.tv/videos/1652600015"
 clip="https://www.twitch.tv/hasanabi/clip/BlightedCrackyCaterpillarBabyRage-FPljWm6tgOFhAJAV"
 
 # does not work
