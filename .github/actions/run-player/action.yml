@@ -21,7 +21,7 @@ runs:
   using: "composite"
   steps:
     - id: test-runner
-      run: ./player.sh "${{ inputs.test-name }}" "${{ inputs.live-url }}" "${{ inputs.vod-url }}" "${{ inputs.clip-url }}"
+      run: ./player.sh "${{ inputs.test-name }}" ${{ inputs.live-url }} ${{ inputs.vod-url }} ${{ inputs.clip-url }}
       shell: bash
     - run: echo "passed=$?" >> $GITHUB_OUTPUT
       shell: bash
