@@ -1,14 +1,15 @@
 name: 'Run Fuzzer'
 description: 'Run fuzzing script'
 outputs:
-  url-bundle:
-    description: "JSON string url bundle"
-    value: ${{ steps.fuzzy-input-generator.outputs.url-bundle }}
+  live-web:
+    value: ${{ steps.fuzzy-input-generator.outputs.live-web }}
+  vod-web:
+    value: ${{ steps.fuzzy-input-generator.outputs.vod-web }}
+  clip-web:
+    value: ${{ steps.fuzzy-input-generator.outputs.clip-web }}
 runs:
   using: "composite"
   steps:
-    - run: echo Hello ${{ inputs.who-to-greet }}.
-      shell: bash
     - id: fuzzy-input-generator
-      run: echo "url-bundle=$(python3 generate-fuzzy-inputs.py)" >> $GITHUB_OUTPUT
+      run: python3 generate-fuzzy-inputs.py
       shell: bash

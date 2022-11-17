@@ -4,8 +4,14 @@ inputs:
   test-name:
     description: 'What test to run'
     required: true
-  url-bundle:
-    description: 'JSON encoded string of live, vod and clip url'
+  live-url:
+    description: 'Live Twitch stream url'
+    required: true
+  vod-url:
+    description: 'Twitch VOD url'
+    required: true
+  clip-url:
+    description: 'Twitch Clip url'
     required: true
 outputs:
   passed:
@@ -15,7 +21,7 @@ runs:
   using: "composite"
   steps:
     - id: test-runner
-      run: ./player.sh "${{ inputs.test-name }}" << "${{ inputs.url-bundle }}"
+      run: ./player.sh "${{ inputs.test-name }}" "${{ inputs.live-url }}" "${{ inputs.vod-url }}" "${{ inputs.clip-url }}"
       shell: bash
     - run: echo "passed=$?" >> $GITHUB_OUTPUT
       shell: bash

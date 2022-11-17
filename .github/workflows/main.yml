@@ -13,7 +13,9 @@ jobs:
         uses: ./.github/actions/run-player
         with:
           test-name: 'web e2e'
-          url-bundle: ${{ steps.generate-fuzzy-inputs.outputs.url-bundle }}
+          live-url: ${{ steps.generate-fuzzy-inputs.outputs.live-web }}
+          vod-url: ${{ steps.generate-fuzzy-inputs.outputs.vod-web }}
+          clip-url: ${{ steps.generate-fuzzy-inputs.outputs.clip-web }}
       - name: Analyze results
         if: always()
         run: echo test results ${{ steps.run-player-tests.outputs.passed }}
