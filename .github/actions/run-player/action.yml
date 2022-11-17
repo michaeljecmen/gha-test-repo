@@ -15,7 +15,7 @@ runs:
   using: "composite"
   steps:
     - id: test-runner
-      run: ./player.sh "${{ inputs.test-name }}" "${{ inputs.url-bundle }}"
+      run: ./player.sh "${{ inputs.test-name }}" << "${{ inputs.url-bundle }}"
       shell: bash
     - run: echo "passed=$?" >> $GITHUB_OUTPUT
       shell: bash
