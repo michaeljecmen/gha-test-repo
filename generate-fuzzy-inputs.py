@@ -13,3 +13,13 @@ clip="https://www.twitch.tv/hasanabi/clip/BlightedCrackyCaterpillarBabyRage-FPlj
 print(f'::set-output live-web="{live}"')
 print(f'::set-output vod-web="{vod}"')
 print(f'::set-output clip-web="{clip}"')
+
+bundle = {
+	"live-web": live,
+	"vod-web": vod,
+	"clip-web": clip
+}
+
+with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
+	for name, value in bundle.items():
+		print(f'{name}={value}', file=fh)
