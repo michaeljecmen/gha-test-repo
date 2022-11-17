@@ -13,6 +13,8 @@ jobs:
         uses: ./.github/actions/run-player
         with:
           test-name: 'web e2e'
-      - if: always()
-        run: echo url-bundle ${{ steps.generate-fuzzy-inputs.outputs.url-bundle }}
+          url-bundle: ${{ steps.generate-fuzzy-inputs.outputs.url-bundle }}
+      - name: Analyze results
+        if: always()
+        run: echo test results ${{ steps.run-player-tests.outputs.passed }}
         shell: bash

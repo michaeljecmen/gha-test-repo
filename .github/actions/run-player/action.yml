@@ -1,8 +1,11 @@
 name: 'Run Player Tests'
 description: 'Run player tests'
 inputs:
-  test-name:  # id of input
+  test-name:
     description: 'What test to run'
+    required: true
+  url-bundle:
+    description: 'JSON encoded string of live, vod and clip url'
     required: true
 outputs:
   passed:
@@ -12,7 +15,7 @@ runs:
   using: "composite"
   steps:
     - id: test-runner
-      run: ./player.sh "${{ inputs.test-name }}"
+      run: ./player.sh "${{ inputs.test-name }}" "${{ inputs.url-bundle }}"
       shell: bash
-    - run: echo "passed=$($?)" >> $GITHUB_OUTPUT
+    - run: echo "passed=$?" >> $GITHUB_OUTPUT
       shell: bash
