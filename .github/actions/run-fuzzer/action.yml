@@ -13,3 +13,6 @@ runs:
     - id: fuzzy-input-generator
       run: python3 generate-fuzzy-inputs.py
       shell: bash
+    - name: 'Echo GITHUB_OUTPUT'
+      run: echo $GITHUB_OUTPUT
+      shell: bash
